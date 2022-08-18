@@ -1,0 +1,13 @@
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create()
+
+while True:
+    hits = mc.events.pollProjectileHits()
+    
+    if len(hits) > 0 :
+        hit = hits[0]
+        x = hit.pos.x 
+        y = hit.pos.y
+        z = hit.pos.z
+        
+        mc.createExplosion(x,y,z)
